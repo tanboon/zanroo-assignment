@@ -1,10 +1,11 @@
-import { Box, Container } from "@mui/material";
+import { Container } from "@mui/material";
 import React from "react";
+import UserPage from "./pages/user/page";
 
 const App: React.FC = () => {
   return (
-    <Container maxWidth="md">
-      <Box sx={{ my: 4 }}>Test</Box>
+    <Container maxWidth="lg">
+      <UserPage />
     </Container>
   );
 };
