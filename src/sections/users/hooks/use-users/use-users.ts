@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useReducer } from "react";
 import { usersReducer } from "./users-reducer";
+import { User } from "../../../../types/user/user";
 
 const KEY = "persistent-users";
 

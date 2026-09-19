@@ -1,11 +1,11 @@
 import { Container } from "@mui/material";
 import React from "react";
-import UserPage from "./pages/user/page";
+import UsersPage from "./pages/users/page";
 
 const App: React.FC = () => {
   return (
     <Container maxWidth="lg">
-      <UserPage />
+      <UsersPage />
     </Container>
   );
 };

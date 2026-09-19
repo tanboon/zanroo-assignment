@@ -1,7 +1,7 @@
 import UsersView from "../../sections/users/view/users-view";
 
-function UserPage() {
+function UsersPage() {
   return <UsersView />;
 }
 
-export default UserPage;
+export default UsersPage;

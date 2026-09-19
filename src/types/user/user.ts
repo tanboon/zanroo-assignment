@@ -4,3 +4,5 @@ type User = {
   age: number;
   nickname: string;
 };
+
+export type { User };

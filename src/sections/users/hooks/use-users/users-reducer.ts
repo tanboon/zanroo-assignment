@@ -1,3 +1,5 @@
+import { User } from "../../../../types/user/user";
+
 type UsersAction =
   | { type: "add"; user: User }
   | { type: "update"; user: User }
