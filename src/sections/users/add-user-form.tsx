@@ -38,50 +38,59 @@ function AddUserForm({ onAdd, onCancel }: AddUserFormProps) {
   };
 
   return (
-    <Stack direction="row" spacing={2}>
-      <TextField
-        size="small"
-        autoFocus
-        placeholder="Name"
-        value={draft.name}
-        onChange={(e) => setDraft({ ...draft, name: e.target.value })}
-      />
-      <TextField
-        select
-        size="small"
-        sx={{ minWidth: 90 }}
-        value={draft.age}
-        onChange={(e) => setDraft({ ...draft, age: Number(e.target.value) })}
-        slotProps={{
-          select: {
-            MenuProps: {
-              slotProps: {
-                paper: {
-                  sx: { maxHeight: 300 },
+    <Stack direction={{ xs: "column", sm: "row" }} sx={{ gap: 2 }}>
+      <Stack direction="row" spacing={2}>
+        <TextField
+          size="small"
+          autoFocus
+          placeholder="Name"
+          value={draft.name}
+          onChange={(e) => setDraft({ ...draft, name: e.target.value })}
+        />
+        <TextField
+          select
+          size="small"
+          sx={{ minWidth: 90 }}
+          value={draft.age}
+          onChange={(e) => setDraft({ ...draft, age: Number(e.target.value) })}
+          slotProps={{
+            select: {
+              MenuProps: {
+                slotProps: {
+                  paper: {
+                    sx: { maxHeight: 300 },
+                  },
                 },
               },
             },
-          },
-        }}
-      >
-        {AGE_OPTIONS.map((age) => (
-          <MenuItem key={age} value={age}>
-            {age}
-          </MenuItem>
-        ))}
-      </TextField>
-      <TextField
-        size="small"
-        placeholder="Nickname"
-        value={draft.nickname}
-        onChange={(e) => setDraft({ ...draft, nickname: e.target.value })}
-      />
-      <Button variant="contained" disabled={!isFormValid} onClick={handleSave}>
-        Save
-      </Button>
-      <Button variant="outlined" onClick={onCancel}>
-        Cancel
-      </Button>
+          }}
+        >
+          {AGE_OPTIONS.map((age) => (
+            <MenuItem key={age} value={age}>
+              {age}
+            </MenuItem>
+          ))}
+        </TextField>
+        <TextField
+          size="small"
+          placeholder="Nickname"
+          value={draft.nickname}
+          onChange={(e) => setDraft({ ...draft, nickname: e.target.value })}
+        />
+      </Stack>
+
+      <Stack direction="row" spacing={2} sx={{ justifyContent: "end" }}>
+        <Button
+          variant="contained"
+          disabled={!isFormValid}
+          onClick={handleSave}
+        >
+          Save
+        </Button>
+        <Button variant="outlined" onClick={onCancel}>
+          Cancel
+        </Button>
+      </Stack>
     </Stack>
   );
 }
