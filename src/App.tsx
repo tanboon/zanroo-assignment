@@ -4,7 +4,7 @@ import UsersPage from "./pages/users/page";
 
 const App: React.FC = () => {
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="lg" sx={{ py: 4 }}>
       <UsersPage />
     </Container>
   );

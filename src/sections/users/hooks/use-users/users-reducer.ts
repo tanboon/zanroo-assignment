@@ -10,9 +10,11 @@ function usersReducer(state: User[], action: UsersAction): User[] {
     case "add":
       return [...state, action.user];
     case "update":
-      return state.map((u) => (u.id == action.user.id ? action.user : u));
+      return state.map((u) => (u.id === action.user.id ? action.user : u));
     case "delete":
-      return state.filter((u) => u.id != action.id);
+      return state.filter((u) => u.id !== action.id);
+    default:
+      return state;
   }
 }
 

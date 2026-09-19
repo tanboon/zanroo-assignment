@@ -9,6 +9,8 @@ import {
 } from "@mui/material";
 import UserRow from "./user-row";
 import type { User } from "../../types/user/user";
+import { memo } from "react";
+import { blue } from "@mui/material/colors";
 
 const COLUMNS = [
   { id: "name", label: "Name", width: 180 },
@@ -28,7 +30,7 @@ function UsersTable({ users, onSave, onDelete }: UsersTableProps) {
     <TableContainer component={Paper}>
       <Table sx={{ width: 1 }}>
         <TableHead>
-          <TableRow>
+          <TableRow sx={{ backgroundColor: blue[100] }}>
             {COLUMNS.map((c) => (
               <TableCell key={c.id} sx={{ width: c.width }}>
                 {c.label}
@@ -38,13 +40,30 @@ function UsersTable({ users, onSave, onDelete }: UsersTableProps) {
         </TableHead>
 
         <TableBody>
-          {users.map((u) => (
-            <UserRow key={u.id} user={u} onSave={onSave} onDelete={onDelete} />
-          ))}
+          {users.length === 0 ? (
+            <TableRow>
+              <TableCell
+                colSpan={COLUMNS.length}
+                align="center"
+                sx={{ py: 3, color: "text.secondary" }}
+              >
+                No users found
+              </TableCell>
+            </TableRow>
+          ) : (
+            users.map((u) => (
+              <UserRow
+                key={u.id}
+                user={u}
+                onSave={onSave}
+                onDelete={onDelete}
+              />
+            ))
+          )}
         </TableBody>
       </Table>
     </TableContainer>
   );
 }
 
-export default UsersTable;
+export default memo(UsersTable);
